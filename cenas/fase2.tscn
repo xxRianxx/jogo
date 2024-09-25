@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://cenas/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fundos/360_F_295747891_UgsLrn8tMz8T98Kz21vis5e45Iv3nGX8.jpg" type="Texture" id=3]
+[ext_resource path="res://cenas/Vazio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cenas/moeda.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cenas/Area2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://cenas/hud.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="personagem" parent="." instance=ExtResource( 2 )]
+position = Vector2( 66, 397 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -262145, 10, 0, -196609, 10, 0, -131073, 10, 0, -65537, 10, 0, -131040, 10, 0, -1, 10, 0, -65504, 10, 0, 65535, 10, 0, 32, 10, 0, 131071, 10, 0, 65568, 10, 0, 196607, 10, 0, 131104, 10, 0, 262143, 10, 0, 196640, 10, 0, 327679, 10, 0, 262162, 10, 0, 262163, 10, 0, 262164, 10, 0, 262165, 10, 0, 262166, 10, 0, 262167, 10, 0, 262168, 10, 0, 262176, 10, 0, 393215, 10, 0, 327697, 10, 0, 327712, 10, 0, 458751, 10, 0, 393232, 10, 0, 393243, 10, 0, 393244, 10, 0, 393245, 10, 0, 393246, 10, 0, 393247, 10, 0, 393248, 10, 0, 524287, 10, 0, 458755, 10, 0, 458756, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 10, 0, 458764, 10, 0, 458765, 10, 0, 458766, 10, 0, 458767, 10, 0, 458784, 10, 0, 589823, 10, 0, 524288, 10, 0, 524311, 10, 0, 524320, 10, 0, 655359, 10, 0, 589825, 10, 0, 589847, 10, 0, 589848, 10, 0, 589849, 10, 0, 589856, 10, 0, 720895, 10, 0, 655362, 10, 0, 655363, 10, 0, 655364, 10, 0, 655366, 10, 0, 655367, 10, 0, 655368, 10, 0, 655369, 10, 0, 655370, 10, 0, 655392, 10, 0, 786431, 10, 0, 720907, 10, 0, 720928, 10, 0, 851967, 10, 0, 786445, 10, 0, 786459, 10, 0, 786460, 10, 0, 786464, 10, 0, 917503, 10, 0, 851982, 10, 0, 852000, 10, 0, 983039, 10, 0, 917511, 10, 0, 917512, 10, 0, 917513, 10, 0, 917514, 10, 0, 917521, 10, 0, 917522, 10, 0, 917536, 10, 0, 1048575, 10, 0, 983041, 10, 0, 983042, 10, 0, 983043, 10, 0, 983044, 10, 0, 983045, 10, 0, 983056, 10, 0, 983057, 10, 0, 983065, 10, 0, 983072, 10, 0, 1114111, 10, 0, 1048588, 10, 0, 1048589, 10, 0, 1048590, 10, 0, 1048591, 10, 0, 1048592, 10, 0, 1048604, 10, 0, 1048608, 10, 0, 1179647, 10, 0, 1114141, 10, 0, 1114142, 10, 0, 1114143, 10, 0, 1114144, 10, 0, 1245183, 10, 0, 1179680, 10, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.815686, 0.239216, 0.239216, 0.643137 )
+self_modulate = Color( 1, 1, 1, 0.886275 )
+show_behind_parent = true
+position = Vector2( 526.719, 271.313 )
+scale = Vector2( 1.65766, 1.84826 )
+texture = ExtResource( 3 )
+
+[node name="Vazio" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3, 615 )
+
+[node name="moedas" type="Node2D" parent="."]
+
+[node name="moeda9" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 733, 230 )
+
+[node name="moeda" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 134, 434 )
+
+[node name="moeda2" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 241, 411 )
+
+[node name="moeda3" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 451, 476 )
+
+[node name="moeda4" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 817, 453 )
+
+[node name="moeda5" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 269, 290 )
+
+[node name="moeda6" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 398, 174 )
+
+[node name="moeda7" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 576, 379 )
+
+[node name="moeda8" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 1001, 515 )
+
+[node name="moeda10" parent="moedas" instance=ExtResource( 5 )]
+position = Vector2( 923, 129 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Area2D" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 702, 119 )
+
+[node name="Area2D2" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 581, 438 )
+
+[node name="Area2D3" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 620, 122 )
+
+[node name="Area2D4" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 394, 503 )
+
+[node name="Area2D5" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 346, 216 )
+
+[node name="Area2D6" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 903, 378 )
+
+[node name="Area2D7" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 871, 185 )
+
+[node name="Area2D8" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 266, 217 )
+
+[node name="Area2D9" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 449, 217 )
+
+[node name="Area2D10" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 808, 279 )
+
+[node name="Area2D11" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 988, 184 )
+
+[node name="Area2D12" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 946, 185 )
+
+[node name="Control" parent="." instance=ExtResource( 7 )]

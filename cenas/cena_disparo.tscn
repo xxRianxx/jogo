@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/script_disparo.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/disparo.png-5522ad02edcb15f21082d1582bc0feba.stex"
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "disparo"
+length = 0.803
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 3, 4, 5, 6, 7, 7 ]
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 433, 268 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+modulate = Color( 1, 0, 0, 0.956863 )
+self_modulate = Color( 1, 0, 1, 1 )
+scale = Vector2( 0.18319, 0.18319 )
+texture = SubResource( 4 )
+vframes = 8
+frame = 2
+region_enabled = true
+region_rect = Rect2( 56.8674, 15.8625, 291.599, 1891.08 )
+region_filter_clip = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 7, -1 )
+shape = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+autoplay = "disparo"
+anims/RESET = SubResource( 2 )
+anims/disparo = SubResource( 3 )
