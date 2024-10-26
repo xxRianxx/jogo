@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cenas/TileMap.tscn" type="PackedScene" id=2]
@@ -6,11 +6,81 @@
 [ext_resource path="res://cenas/moeda.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cenas/PassarDeFase.tscn" type="PackedScene" id=6]
-[ext_resource path="res://fundos/istockphoto-1372132668-612x612.jpg" type="Texture" id=7]
+[ext_resource path="res://Imagens/fundos/istockphoto-1372132668-612x612.jpg" type="Texture" id=7]
 [ext_resource path="res://cenas/Vazio.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Imagens/HUB/coins-chests-etc-2-0.png" type="Texture" id=9]
+[ext_resource path="res://cenas/Pausa.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/HP.gd" type="Script" id=11]
+[ext_resource path="res://scripts/mana.gd" type="Script" id=12]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 400, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 416, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 432, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 448, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 464, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 480, 224, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 528, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 544, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 560, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 576, 210, 16, 15 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="fase" type="Node2D"]
-position = Vector2( -16, 8 )
+position = Vector2( -8, -3 )
 scale = Vector2( 1, 1.00593 )
 
 [node name="personagem" parent="." instance=ExtResource( 1 )]
@@ -73,3 +143,53 @@ texture = ExtResource( 7 )
 
 [node name="Vazio" parent="." instance=ExtResource( 8 )]
 position = Vector2( 8, 616 )
+
+[node name="pause_menu" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="HUB" type="CanvasLayer" parent="."]
+
+[node name="Health" type="ColorRect" parent="HUB"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 98.0
+margin_bottom = 42.0
+color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
+script = ExtResource( 11 )
+
+[node name="bar" type="ColorRect" parent="HUB/Health"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 76.0
+margin_bottom = 10.0
+color = Color( 0.964706, 0.0196078, 0.0196078, 1 )
+
+[node name="Anim" type="AnimatedSprite" parent="HUB/Health"]
+position = Vector2( -8, 4 )
+frames = SubResource( 7 )
+playing = true
+
+[node name="mana" type="ColorRect" parent="HUB"]
+margin_left = 20.0
+margin_top = 50.0
+margin_right = 98.0
+margin_bottom = 62.0
+color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
+script = ExtResource( 12 )
+
+[node name="bar" type="ColorRect" parent="HUB/mana"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 76.0
+margin_bottom = 10.0
+color = Color( 0.054902, 0.560784, 0.968627, 1 )
+
+[node name="Anim" type="AnimatedSprite" parent="HUB/mana"]
+position = Vector2( -7, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 12 )
+frame = 2
+playing = true
+
+[connection signal="player_stats_changed" from="personagem" to="HUB/Health" method="_on_personagem_player_stats_changed"]
+[connection signal="player_stats_changed" from="personagem" to="HUB/mana" method="_on_personagem_player_stats_changed"]

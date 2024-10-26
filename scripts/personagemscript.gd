@@ -1,52 +1,97 @@
 extends KinematicBody2D
 
 var velocidade = 300
-var forca_pulo = 400
-var gravidade = 30
+var forca_pulo = 300
+var gravidade = 600
 var mov = Vector2.ZERO
-var pulando  = false
+var pulando = false
 var atirando = false
-var direcao  = 1
+var direcao = 1
 
-func _process(delta):
-	mov.x = 0
-	mov.y += gravidade
-	if (not atirando):
-		if (Input.is_action_pressed("ui_left")):
-			mov.x = -velocidade 
+#variavel HP
+var health := 100.0
+var max_health := 100.0
+var health_recovery := 1.0
+#variavel Mana
+var mana := 100.0
+var max_mana := 100.0
+var mana_recovery := 1.0
+
+signal player_stats_changed
+
+func _ready() -> void:
+	emit_signal("player_stats_changed", self)
+	
+func _process(delta: float) -> void:
+	var new_mana = min(mana + mana_recovery * delta, max_mana)
+	if new_mana != mana:
+		mana = new_mana
+		emit_signal("player_stats_changed", self)
+		
+	var new_health = min(health + health_recovery * delta, max_health)
+	if new_health != health:
+		health = new_health
+		emit_signal("player_stats_changed", self)
+		
+
+func _physics_process(delta):
+	mov.x = 0  # Reseta o movimento horizontal a cada frame
+
+	# Aplica gravidade apenas quando no ar
+	if not is_on_floor():
+		mov.y += gravidade * delta
+	else:
+		mov.y = 0  # Zera a velocidade vertical ao tocar o chão
+
+	# Movimento lateral (esquerda/direita) se não estiver atirando
+	if not atirando:
+		if Input.is_action_pressed("ui_left"):
+			mov.x = -velocidade
 			$AnimatedSprite.flip_h = true
 			direcao = -1
-		elif (Input.is_action_pressed("ui_right")):
-			mov.x = velocidade 
+		elif Input.is_action_pressed("ui_right"):
+			mov.x = velocidade
 			$AnimatedSprite.flip_h = false
 			direcao = 1
 
-	if (Input.is_action_just_pressed("ui_up") and is_on_floor()):
+	# Pulo apenas quando está no chão
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		mov.y = -forca_pulo
 
-	if (is_on_floor()):
+	# Verifica se está no chão
+	if is_on_floor():
 		pulando = false
-		if (not atirando):
-			if (mov.x==0):
-				$AnimatedSprite.play("idle")
+		if not atirando:
+			if mov.x == 0:
+				# Toca a animação "idle" apenas se não já estiver tocando
+				if $AnimatedSprite.animation != "idle":
+					$AnimatedSprite.play("idle")
 			else:
-				$AnimatedSprite.play("run")	
-				
-			if (Input.is_action_just_pressed("disparo")):
-				$AnimationPlayer.play("atacando")
-		
-				atirando = true
-				
-		if ($AnimationPlayer.current_animation==""):
-			atirando = false
-			
-	elif (not pulando):
-		$AnimatedSprite.play("hunter")
-		pulando = true
-		atirando = false
-		
-	mov = move_and_slide(mov,Vector2(0,-1))
+				# Toca a animação "run" apenas se não já estiver tocando
+				if $AnimatedSprite.animation != "run":
+					$AnimatedSprite.play("run")
 
+			# Atira se o botão de disparo for pressionado
+			if Input.is_action_just_pressed("disparo"):
+				$AnimationPlayer.play("atacando")
+				atirando = true
+				if mana > 10:mana = mana - 10
+				health = health -10
+				emit_signal("player_stats_changed",self)
+
+		# Verifica se a animação de ataque terminou
+		if not $AnimationPlayer.is_playing():
+			atirando = false
+
+	# Se o personagem está no ar (não está no chão)
+	elif not pulando:
+		if $AnimatedSprite.animation != "hunter":
+			$AnimatedSprite.play("hunter")  # Animação de pulo
+		pulando = true
+		atirando = false  # Cancela o atirar enquanto estiver no ar
+
+	# Movimenta e trata colisões
+	mov = move_and_slide(mov, Vector2(0, -1))
 
 
 

@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "**Mestre Elowen**Um bruxo sábio e antigo que serve como mentor do jogador",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1729260715.json",
+	"mirror_portraits": false,
+	"name": "Mestre Elowen",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 100,
+	"offset_y": -100,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://addons/dialogic/Example Assets/portraits/df-2.png"
+		}
+	],
+	"scale": 50,
+	"theme": "theme-1729266239.cfg"
+}

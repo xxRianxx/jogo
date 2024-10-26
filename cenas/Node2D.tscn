@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 504.5, 70 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 502, 530 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+one_way_collision_margin = 3.0
+
+[node name="personagem" parent="." instance=ExtResource( 1 )]
