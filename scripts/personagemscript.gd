@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocidade = 300
 var forca_pulo = 300
-var gravidade = 600
+var gravidade = 1000
 var mov = Vector2.ZERO
 var pulando = false
 var atirando = false
@@ -40,6 +40,7 @@ func _physics_process(delta):
 	# Aplica gravidade apenas quando no ar
 	if not is_on_floor():
 		mov.y += gravidade * delta
+		$AnimatedSprite.play("hunter")
 	else:
 		mov.y = 0  # Zera a velocidade vertical ao tocar o chão
 
@@ -49,48 +50,39 @@ func _physics_process(delta):
 			mov.x = -velocidade
 			$AnimatedSprite.flip_h = true
 			direcao = -1
+			$AnimatedSprite.play("run")
+			
 		elif Input.is_action_pressed("ui_right"):
 			mov.x = velocidade
 			$AnimatedSprite.flip_h = false
 			direcao = 1
+			$AnimatedSprite.play("run")
 
 	# Pulo apenas quando está no chão
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		mov.y = -forca_pulo
+		
+		
+		
 
 	# Verifica se está no chão
 	if is_on_floor():
 		pulando = false
 		if not atirando:
 			if mov.x == 0:
-				# Toca a animação "idle" apenas se não já estiver tocando
-				if $AnimatedSprite.animation != "idle":
-					$AnimatedSprite.play("idle")
-			else:
-				# Toca a animação "run" apenas se não já estiver tocando
-				if $AnimatedSprite.animation != "run":
-					$AnimatedSprite.play("run")
-
+				$AnimatedSprite.play("idle")
 			# Atira se o botão de disparo for pressionado
 			if Input.is_action_just_pressed("disparo"):
 				$AnimationPlayer.play("atacando")
 				atirando = true
 				if mana > 10:mana = mana - 10
-				health = health -10
+	
 				emit_signal("player_stats_changed",self)
 
 		# Verifica se a animação de ataque terminou
 		if not $AnimationPlayer.is_playing():
 			atirando = false
-
-	# Se o personagem está no ar (não está no chão)
-	elif not pulando:
-		if $AnimatedSprite.animation != "hunter":
-			$AnimatedSprite.play("hunter")  # Animação de pulo
-		pulando = true
-		atirando = false  # Cancela o atirar enquanto estiver no ar
-
-	# Movimenta e trata colisões
+		
 	mov = move_and_slide(mov, Vector2(0, -1))
 
 
@@ -109,3 +101,7 @@ func disparar(anim_name):
 			obj_disparo.global_position = $Position2DEsq.global_position
 		
 		obj_disparo.get_node("Area2D").direcao = direcao
+
+
+
+

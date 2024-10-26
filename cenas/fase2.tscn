@@ -30,12 +30,6 @@ position = Vector2( 3, 615 )
 
 [node name="moedas" type="Node2D" parent="."]
 
-[node name="moeda9" parent="moedas" instance=ExtResource( 5 )]
-position = Vector2( 733, 230 )
-
-[node name="moeda" parent="moedas" instance=ExtResource( 5 )]
-position = Vector2( 134, 434 )
-
 [node name="moeda2" parent="moedas" instance=ExtResource( 5 )]
 position = Vector2( 241, 411 )
 
@@ -53,9 +47,6 @@ position = Vector2( 398, 174 )
 
 [node name="moeda7" parent="moedas" instance=ExtResource( 5 )]
 position = Vector2( 576, 379 )
-
-[node name="moeda8" parent="moedas" instance=ExtResource( 5 )]
-position = Vector2( 1001, 515 )
 
 [node name="moeda10" parent="moedas" instance=ExtResource( 5 )]
 position = Vector2( 923, 129 )

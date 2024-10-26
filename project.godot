@@ -123,6 +123,11 @@ dialogic_default_action={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="personagem"
+2d_physics/layer_2="fantasmaLivro"
+
 [physics]
 
 common/enable_pause_aware_picking=true

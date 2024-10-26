@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cenas/TileMap.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://cenas/Pausa.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/HP.gd" type="Script" id=11]
 [ext_resource path="res://scripts/mana.gd" type="Script" id=12]
+[ext_resource path="res://cenas/fantasmaLivro.tscn" type="PackedScene" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -83,6 +84,9 @@ animations = [ {
 position = Vector2( -8, -3 )
 scale = Vector2( 1, 1.00593 )
 
+[node name="fantasmaLivro" parent="." instance=ExtResource( 13 )]
+position = Vector2( 681, 328.055 )
+
 [node name="personagem" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 368 )
 
@@ -92,7 +96,7 @@ tile_data = PoolIntArray( 65535, 3, 0, 32, 3, 0, 131071, 3, 0, 65568, 3, 0, 1966
 [node name="traps" type="Node2D" parent="."]
 
 [node name="Area2D" parent="traps" instance=ExtResource( 3 )]
-position = Vector2( 520, 472 )
+position = Vector2( 522, 477.17 )
 
 [node name="Area2D2" parent="traps" instance=ExtResource( 3 )]
 position = Vector2( 608, 472 )
@@ -106,7 +110,7 @@ position = Vector2( 768, 472 )
 [node name="moedas" type="Node2D" parent="."]
 
 [node name="moeda" parent="moedas" instance=ExtResource( 4 )]
-position = Vector2( 208, 488 )
+position = Vector2( 208, 487.111 )
 
 [node name="moeda2" parent="moedas" instance=ExtResource( 4 )]
 position = Vector2( 296, 408 )
@@ -167,6 +171,7 @@ color = Color( 0.964706, 0.0196078, 0.0196078, 1 )
 [node name="Anim" type="AnimatedSprite" parent="HUB/Health"]
 position = Vector2( -8, 4 )
 frames = SubResource( 7 )
+frame = 4
 playing = true
 
 [node name="mana" type="ColorRect" parent="HUB"]
@@ -188,7 +193,6 @@ color = Color( 0.054902, 0.560784, 0.968627, 1 )
 position = Vector2( -7, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 12 )
-frame = 2
 playing = true
 
 [connection signal="player_stats_changed" from="personagem" to="HUB/Health" method="_on_personagem_player_stats_changed"]
