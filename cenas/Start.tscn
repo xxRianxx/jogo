@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Imagens/fundos/3303295-jogo-de-fundo-de-montanhas-vetor.jpg" type="Texture" id=1]
+[ext_resource path="res://Wraith_03/PNG Sequences/Idle Blink/Wraith_03_Idle Blinking_000.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/MenuImg/Broken_Boom-removebg-preview.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/MenuImg/Start.tres" type="Theme" id=4]
+[ext_resource path="res://scripts/Start.gd" type="Script" id=5]
+[ext_resource path="res://Imagens/MenuImg/vasoura.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect3:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, -72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 555, 37 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fundo"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect3:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1000, -72 ), Vector2( 9, -72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1000, 37 ), Vector2( 555, 37 ) ]
+}
+
+[node name="Start" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fundo"
+reset_on_save = false
+anims/RESET = SubResource( 1 )
+anims/fundo = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -12.0
+margin_top = -3.0
+margin_right = 1010.0
+margin_bottom = 596.0
+rect_scale = Vector2( 1.6, 1.68 )
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 9.0
+margin_top = -72.0
+margin_right = 509.0
+margin_bottom = 428.0
+texture = ExtResource( 3 )
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect3"]
+margin_left = 31.0
+margin_top = 200.0
+margin_right = 431.0
+margin_bottom = 600.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -469.0
+margin_top = -263.0
+margin_right = -369.001
+margin_bottom = -163.0
+rect_scale = Vector2( 3.59811, 6.28076 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -112.281
+margin_top = -1.27975
+margin_right = -12.2811
+margin_bottom = 66.7202
+rect_scale = Vector2( 0.663796, 0.342064 )
+alignment = 2
+
+[node name="Start" type="Button" parent="TextureRect2/VBoxContainer"]
+margin_top = 17.0
+margin_right = 99.0
+margin_bottom = 31.0
+theme = ExtResource( 4 )
+text = "Start"
+
+[node name="Control" type="Button" parent="TextureRect2/VBoxContainer"]
+margin_top = 35.0
+margin_right = 99.0
+margin_bottom = 49.0
+theme = ExtResource( 4 )
+text = "Control"
+
+[node name="Quit" type="Button" parent="TextureRect2/VBoxContainer"]
+margin_top = 53.0
+margin_right = 99.0
+margin_bottom = 67.0
+theme = ExtResource( 4 )
+text = "Quit"
+
+[connection signal="pressed" from="TextureRect2/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="TextureRect2/VBoxContainer/Start" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="TextureRect2/VBoxContainer/Control" to="." method="_on_Control_pressed"]
+[connection signal="pressed" from="TextureRect2/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

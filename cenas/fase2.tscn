@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://cenas/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://fundos/360_F_295747891_UgsLrn8tMz8T98Kz21vis5e45Iv3nGX8.jpg" type="Texture" id=3]
+[ext_resource path="res://Imagens/fundos/360_F_295747891_UgsLrn8tMz8T98Kz21vis5e45Iv3nGX8.jpg" type="Texture" id=3]
 [ext_resource path="res://cenas/Vazio.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/moeda.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cenas/Area2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cenas/hud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://cenas/Pausa.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -98,3 +99,6 @@ position = Vector2( 988, 184 )
 position = Vector2( 946, 185 )
 
 [node name="Control" parent="." instance=ExtResource( 7 )]
+
+[node name="pause_menu" parent="." instance=ExtResource( 8 )]
+visible = false

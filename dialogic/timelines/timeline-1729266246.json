@@ -1,0 +1,123 @@
+{
+	"events": [
+		{
+			"background": "res://Imagens/fundos/fundo 2d.jpg",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.2
+		},
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://Audio/01. God of War - Ragnarök.mp3",
+			"volume": 0
+		},
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Em um reino mágico conhecido como Eldoria, a magia é transmitida através de varinhas e vassouras encantadas, ferramentas essenciais para todo bruxo. \nDurante uma era de grande poder, os bruxos se uniram para criar um artista lendário, o \"Boom\", que amplifica a magia de suas varinhas e vassouras. \nPorém, a ganância de alguns levou à sua destruição, causando uma onda de caos e desequilíbrio. \nApós a queda do Boom, as varinhas e vassouras mágicas perderam seu poder, e as criaturas malignas emergiram do submundo, ameaçando o reino. \nOs bruxos, agora desunidos e desprovidos de suas habilidades, lutam para sobreviver enquanto o caos se espalha. \nApenas um jovem aprendiz, dotado de um potencial extraordinário, pode restaurar a magia e unir os bruxos novamente."
+		},
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1729720079.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bem-vindo, jovem aprendiz! Este é o início de sua jornada em nosso reino mágico, onde cada fase carrega uma história e inimigos."
+		},
+		{
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "A sua jornada está prestes a começar. Para restaurar a magia do nosso reino, você deve recuperar as Varinhas e trazer a paz.\nVocê aceita está missão ?"
+		},
+		{
+			"choice": "Sim",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maravilha, boa sorte!!!"
+		},
+		{
+			"change_scene": "res://cenas/fase.tscn",
+			"event_id": "dialogic_041"
+		},
+		{
+			"choice": "Não",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1729260715.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Você não merece está varinha, Saia da minha frente..."
+		},
+		{
+			"change_scene": "res://cenas/Start.tscn",
+			"event_id": "dialogic_041"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1729266246.json",
+		"name": "Entrada"
+	}
+}
