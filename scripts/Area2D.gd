@@ -9,7 +9,7 @@ func _on_Area2D_body_entered(body):
 			var dialogo = get_node("res://cenas/dialog.tscn")
 			dialogo.stop()  # Ou qualquer método que você tenha para parar o diálogo
 
-		GlobalVar.Almas = 0
+		GlobalVar.Vassouras = 0
 		get_tree().reload_current_scene()
 
 

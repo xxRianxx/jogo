@@ -126,7 +126,8 @@ dialogic_default_action={
 [layer_names]
 
 2d_physics/layer_1="personagem"
-2d_physics/layer_2="fantasmaLivro"
+2d_physics/layer_2="mundo"
+2d_physics/layer_3="inimigo"
 
 [physics]
 

@@ -1,3 +1,3 @@
 extends Node
 
-var Almas = 0;
+var Vassouras = 0;

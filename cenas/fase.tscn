@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://cenas/personagem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cenas/TileMap.tscn" type="PackedScene" id=2]
@@ -12,52 +12,51 @@
 [ext_resource path="res://cenas/Pausa.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/HP.gd" type="Script" id=11]
 [ext_resource path="res://scripts/mana.gd" type="Script" id=12]
-[ext_resource path="res://cenas/fantasmaLivro.tscn" type="PackedScene" id=13]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 400, 224, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 416, 224, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 432, 224, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 448, 224, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 464, 224, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 480, 224, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 528, 210, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 544, 210, 16, 15 )
@@ -72,9 +71,9 @@ flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 576, 210, 16, 15 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -84,28 +83,26 @@ animations = [ {
 position = Vector2( -8, -3 )
 scale = Vector2( 1, 1.00593 )
 
-[node name="fantasmaLivro" parent="." instance=ExtResource( 13 )]
-position = Vector2( 681, 328.055 )
-
 [node name="personagem" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 368 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
+collision_layer = 2
 tile_data = PoolIntArray( 65535, 3, 0, 32, 3, 0, 131071, 3, 0, 65568, 3, 0, 196607, 3, 0, 131104, 3, 0, 262143, 3, 0, 196640, 3, 0, 327679, 3, 0, 262176, 3, 0, 393215, 3, 0, 327712, 3, 0, 458751, 3, 0, 393248, 3, 0, 524287, 3, 0, 458784, 3, 0, 589823, 3, 0, 524320, 3, 0, 655359, 3, 0, 589856, 3, 0, 720895, 3, 0, 655392, 3, 0, 786431, 3, 0, 720928, 3, 0, 851967, 3, 0, 786464, 3, 0, 917503, 3, 0, 852000, 3, 0, 983039, 3, 0, 917536, 3, 0, 1048575, 3, 0, 983048, 0, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 2, 0, 983068, 0, 0, 983069, 1, 0, 983070, 1, 0, 983071, 2, 0, 983072, 3, 0, 1114111, 3, 0, 1048576, 0, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 4, 0, 1048585, 4, 0, 1048586, 4, 0, 1048587, 4, 0, 1048588, 4, 0, 1048589, 4, 0, 1048590, 4, 0, 1048591, 4, 0, 1048592, 4, 0, 1048593, 4, 0, 1048594, 4, 0, 1048595, 4, 0, 1048596, 4, 0, 1048597, 4, 0, 1048598, 4, 0, 1048599, 4, 0, 1048600, 4, 0, 1048601, 5, 0, 1048604, 3, 0, 1048605, 4, 0, 1048606, 4, 0, 1048607, 5, 0, 1048608, 3, 0, 1179647, 3, 0, 1114112, 3, 0, 1114113, 4, 0, 1114114, 4, 0, 1114115, 4, 0, 1114116, 4, 0, 1114117, 4, 0, 1114118, 4, 0, 1114119, 4, 0, 1114120, 4, 0, 1114121, 4, 0, 1114122, 4, 0, 1114123, 4, 0, 1114124, 4, 0, 1114125, 4, 0, 1114126, 4, 0, 1114127, 4, 0, 1114128, 4, 0, 1114129, 4, 0, 1114130, 4, 0, 1114131, 4, 0, 1114132, 4, 0, 1114133, 4, 0, 1114134, 4, 0, 1114135, 4, 0, 1114136, 4, 0, 1114137, 5, 0, 1114140, 3, 0, 1114141, 4, 0, 1114142, 4, 0, 1114143, 5, 0, 1114144, 3, 0, 1245183, 3, 0, 1179648, 6, 0, 1179649, 7, 0, 1179650, 7, 0, 1179651, 7, 0, 1179652, 7, 0, 1179653, 7, 0, 1179654, 7, 0, 1179655, 7, 0, 1179656, 7, 0, 1179657, 7, 0, 1179658, 7, 0, 1179659, 7, 0, 1179660, 7, 0, 1179661, 7, 0, 1179662, 7, 0, 1179663, 7, 0, 1179664, 7, 0, 1179665, 7, 0, 1179666, 7, 0, 1179667, 7, 0, 1179668, 7, 0, 1179669, 7, 0, 1179670, 7, 0, 1179671, 7, 0, 1179672, 7, 0, 1179673, 8, 0, 1179676, 6, 0, 1179677, 7, 0, 1179678, 7, 0, 1179679, 8, 0, 1179680, 3, 0 )
 
 [node name="traps" type="Node2D" parent="."]
 
 [node name="Area2D" parent="traps" instance=ExtResource( 3 )]
-position = Vector2( 522, 477.17 )
+position = Vector2( 500, 473.194 )
 
 [node name="Area2D2" parent="traps" instance=ExtResource( 3 )]
-position = Vector2( 608, 472 )
+position = Vector2( 632, 472.2 )
 
 [node name="Area2D3" parent="traps" instance=ExtResource( 3 )]
 position = Vector2( 328, 472 )
 
 [node name="Area2D4" parent="traps" instance=ExtResource( 3 )]
-position = Vector2( 768, 472 )
+position = Vector2( 754, 472.2 )
 
 [node name="moedas" type="Node2D" parent="."]
 
@@ -122,7 +119,7 @@ position = Vector2( 448, 432 )
 position = Vector2( 576, 416 )
 
 [node name="moeda5" parent="moedas" instance=ExtResource( 4 )]
-position = Vector2( 712, 448 )
+position = Vector2( 697, 447.347 )
 
 [node name="moeda6" parent="moedas" instance=ExtResource( 4 )]
 position = Vector2( 880, 472 )
@@ -141,7 +138,7 @@ scale = Vector2( 0.257194, 1.29412 )
 modulate = Color( 0.541176, 0.352941, 0, 0.568627 )
 self_modulate = Color( 1, 0.482353, 0.0666667, 1 )
 show_behind_parent = true
-position = Vector2( 520.159, 304 )
+position = Vector2( 520, 307.178 )
 scale = Vector2( 1.68914, 2.00693 )
 texture = ExtResource( 7 )
 
@@ -154,12 +151,15 @@ visible = false
 [node name="HUB" type="CanvasLayer" parent="."]
 
 [node name="Health" type="ColorRect" parent="HUB"]
-margin_left = 20.0
-margin_top = 30.0
-margin_right = 98.0
-margin_bottom = 42.0
+margin_left = 34.0
+margin_top = 42.0
+margin_right = 112.0
+margin_bottom = 54.0
 color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="bar" type="ColorRect" parent="HUB/Health"]
 margin_left = 1.0
@@ -167,18 +167,21 @@ margin_top = 1.0
 margin_right = 76.0
 margin_bottom = 10.0
 color = Color( 0.964706, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Anim" type="AnimatedSprite" parent="HUB/Health"]
 position = Vector2( -8, 4 )
 frames = SubResource( 7 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="mana" type="ColorRect" parent="HUB"]
-margin_left = 20.0
-margin_top = 50.0
-margin_right = 98.0
-margin_bottom = 62.0
+margin_left = 34.0
+margin_top = 62.0
+margin_right = 112.0
+margin_bottom = 74.0
 color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
 script = ExtResource( 12 )
 
@@ -192,7 +195,8 @@ color = Color( 0.054902, 0.560784, 0.968627, 1 )
 [node name="Anim" type="AnimatedSprite" parent="HUB/mana"]
 position = Vector2( -7, 0 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 12 )
+frames = SubResource( 21 )
+frame = 1
 playing = true
 
 [connection signal="player_stats_changed" from="personagem" to="HUB/Health" method="_on_personagem_player_stats_changed"]

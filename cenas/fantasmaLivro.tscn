@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/fantasmaLivro.gd" type="Script" id=1]
 [ext_resource path="res://PC Computer - MapleStory - The Book Ghost.png" type="Texture" id=2]
+[ext_resource path="res://cenas/dano.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -117,24 +118,35 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=27]
+radius = 36.8906
+
 [sub_resource type="CapsuleShape2D" id=26]
-radius = 24.0
-height = 0.0
+radius = 45.6223
+height = 51.011
 
 [node name="fantasmaLivro" type="KinematicBody2D"]
 position = Vector2( 556, 369 )
 scale = Vector2( 0.569897, 0.569897 )
-collision_layer = 2
+collision_layer = 4
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1.7547, 0 )
 frames = SubResource( 25 )
 animation = "parado"
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 1.7547, 21.0565 )
+position = Vector2( -5.2641, 10.5283 )
+shape = SubResource( 27 )
+
+[node name="dano" parent="." instance=ExtResource( 3 )]
+position = Vector2( -28.0752, 1.7547 )
+scale = Vector2( 1, 0.789431 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dano"]
+position = Vector2( 26.3205, 4.4455 )
 shape = SubResource( 26 )

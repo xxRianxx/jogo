@@ -1,9 +1,6 @@
 extends CanvasLayer
 
 onready var Resume = $VBoxContainer/Resume
-func _ready(): false
-
-func _process(delta): 	pass
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"): # "ui_cancel" é o padrão para ESC

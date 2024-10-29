@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Imagens/Pixel Adventure 1/Free/Items/Fruits/Collected.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Area2Dmoeda.gd" type="Script" id=2]
-
+[ext_resource path="res://Imagens/PC Computer - Anodyne - Broom.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -34,25 +34,60 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 160, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 30, 16, 10 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 30, 16, 10 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 30, 16, 10 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 30, 16, 10 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 30, 16, 10 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 30, 16, 10 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "vassoura",
+"speed": 9.0
 } ]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 15.5, 1.5 )
 
-[node name="moeda" type="Area2D"]
+[node name="vassoura" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.98, 0.98, 0, 0.49 )
+position = Vector2( 8, 0 )
+scale = Vector2( 2.3, 2.3 )
 frames = SubResource( 7 )
+animation = "vassoura"
 frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 8 )
+position = Vector2( 5.5, -3.5 )
+shape = SubResource( 14 )
 
 [connection signal="body_entered" from="." to="." method="_on_moeda_body_entered"]

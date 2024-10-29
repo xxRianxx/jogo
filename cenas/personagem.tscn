@@ -66,11 +66,7 @@
 [ext_resource path="res://Wraith_03/PNG Sequences/Attacking/Wraith_03_Attack_010.png" type="Texture" id=64]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 4, 6.83333 )
-
-[sub_resource type="CapsuleShape2D" id=18]
-radius = 4.3691
-height = 0.0
+extents = Vector2( 3.01788, 6.02084 )
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -219,9 +215,13 @@ tracks/1/keys = {
 "values": [ "atk" ]
 }
 
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 7.33333
+height = 7.33333
+
 [node name="personagem" type="KinematicBody2D"]
 scale = Vector2( 3, 3 )
-collision_mask = 0
+collision_mask = 6
 script = ExtResource( 13 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -236,21 +236,14 @@ editor_draw_screen = false
 editor_draw_limits = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 14.6309, 8.45832 )
+position = Vector2( 13.6488, 7.64583 )
 shape = SubResource( 14 )
-
-[node name="areaInimigo" type="Area2D" parent="CollisionShape2D"]
-position = Vector2( 0.0357666, -0.124986 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/areaInimigo"]
-shape = SubResource( 18 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 15, 8.33334 )
 scale = Vector2( 0.060119, 0.060119 )
 frames = SubResource( 13 )
 animation = "atk"
-frame = 1
 speed_scale = 4.0
 playing = true
 
@@ -264,5 +257,13 @@ position = Vector2( 10.9643, 12.2917 )
 anims/RESET = SubResource( 17 )
 anims/andando = SubResource( 15 )
 anims/atacando = SubResource( 16 )
+
+[node name="danoSofrido" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="danoSofrido"]
+position = Vector2( 13.6667, 6.66667 )
+shape = SubResource( 18 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="disparar"]

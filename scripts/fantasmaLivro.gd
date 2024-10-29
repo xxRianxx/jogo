@@ -6,7 +6,7 @@ onready var sprite = $AnimatedSprite  # Referência ao sprite do inimigo
 func _physics_process(delta):
 	
 	var vetor_ate_personagem = personagem.global_position - global_position
-	move_and_slide(vetor_ate_personagem.normalized() * 200)
+	move_and_slide(vetor_ate_personagem.normalized() * 80)
 
 	
 	if vetor_ate_personagem.x > 0:

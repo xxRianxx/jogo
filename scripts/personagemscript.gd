@@ -17,6 +17,7 @@ var mana := 100.0
 var max_mana := 100.0
 var mana_recovery := 1.0
 
+
 signal player_stats_changed
 
 func _ready() -> void:
@@ -32,8 +33,6 @@ func _process(delta: float) -> void:
 	if new_health != health:
 		health = new_health
 		emit_signal("player_stats_changed", self)
-		
-
 func _physics_process(delta):
 	mov.x = 0  # Reseta o movimento horizontal a cada frame
 
@@ -101,6 +100,8 @@ func disparar(anim_name):
 			obj_disparo.global_position = $Position2DEsq.global_position
 		
 		obj_disparo.get_node("Area2D").direcao = direcao
+
+
 
 
 
