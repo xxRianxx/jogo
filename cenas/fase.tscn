@@ -174,7 +174,7 @@ __meta__ = {
 [node name="Anim" type="AnimatedSprite" parent="HUB/Health"]
 position = Vector2( -8, 4 )
 frames = SubResource( 7 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="mana" type="ColorRect" parent="HUB"]
@@ -196,7 +196,6 @@ color = Color( 0.054902, 0.560784, 0.968627, 1 )
 position = Vector2( -7, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 21 )
-frame = 1
 playing = true
 
 [connection signal="player_stats_changed" from="personagem" to="HUB/Health" method="_on_personagem_player_stats_changed"]

@@ -65,3 +65,5 @@ shape = SubResource( 5 )
 autoplay = "disparo"
 anims/RESET = SubResource( 2 )
 anims/disparo = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/hud.gd" type="Script" id=1]
-[ext_resource path="res://Imagens/Pixel Adventure 1/Free/Items/Fruits/Collected.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/x256_Spritesheets/Pixel Adventure 1/Free/Items/Fruits/Collected.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/PC Computer - Anodyne - Broom.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -98,5 +98,4 @@ position = Vector2( 27, 24 )
 scale = Vector2( 1.26172, 1.55859 )
 frames = SubResource( 7 )
 animation = "vassoura"
-frame = 1
 playing = true

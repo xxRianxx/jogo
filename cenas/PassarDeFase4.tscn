@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Imagens/PC Computer - Zombie Island - Gate Portal.png" type="Texture" id=1]
+[ext_resource path="res://scripts/PassarDeFase4.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34, 43 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 320, 17, 137, 176 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "portal",
+"speed": 5.0
+} ]
+
+[node name="PassarDeFase4" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 442, 299 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 445.25, 305.219 )
+scale = Vector2( 0.565693, 0.565693 )
+frames = SubResource( 3 )
+animation = "portal"
+flip_h = true
+
+[connection signal="body_entered" from="." to="." method="_on_PassarDeFase4_body_entered"]

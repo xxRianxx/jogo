@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Imagens/32499.png" type="Texture" id=1]
+[ext_resource path="res://scripts/inimigoAranha.gd" type="Script" id=2]
+[ext_resource path="res://cenas/dano.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.1245
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 128, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "andando",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 21.2132
+
+[node name="InimigoAranha" type="KinematicBody2D"]
+position = Vector2( 514, 286 )
+rotation = -1.47381
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.704823, -3.08275 )
+rotation = -0.188034
+scale = Vector2( 1.6268, 1.6268 )
+frames = SubResource( 7 )
+animation = "andando"
+frame = 3
+playing = true
+
+[node name="dano" parent="." instance=ExtResource( 3 )]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dano"]
+shape = SubResource( 8 )
