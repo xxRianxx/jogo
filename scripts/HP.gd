@@ -17,5 +17,8 @@ func _ready():
 
 
 func _on_personagem_player_stats_changed(var player) -> void:
-	$bar.rect_size.x = 78 * player.health / player.max_health
+	$bar.rect_size.x = 78 * player.vida / player.vida_maxima
 	pass # Replace with function body.
+
+
+

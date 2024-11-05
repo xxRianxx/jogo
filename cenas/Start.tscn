@@ -160,6 +160,5 @@ margin_bottom = 67.0
 theme = ExtResource( 4 )
 text = "Quit"
 
-[connection signal="pressed" from="TextureRect2/VBoxContainer/Start" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="TextureRect2/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="TextureRect2/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

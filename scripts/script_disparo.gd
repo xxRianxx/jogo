@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocidade = 5
+var velocidade = 10
 var direcao = 1  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,8 +24,14 @@ func _on_Area2D_body_entered(body):
 	
 	if body.name == "inimigoAranha4": 
 		body.queue_free()
+	
+	if body.name == "bossAranha":
+		body.vida = body.vida - 40
+		if body.vida <= 0:
+			body.queue_free()
+			
 		
 
-  # Retorna o tiro para sua posição inicial
+	queue_free()
 
 		

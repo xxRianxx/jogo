@@ -40,7 +40,7 @@ var _signals_to_copy = [
 	'portrait_changed',
 ]
 ## -----------------------------------------------------------------------------
-## 						SIGNALS (proxy copy of DialogNode signals)
+## 						SINAIS (cópia dos sinais do DialogNode)
 ## -----------------------------------------------------------------------------
 # Event end/start
 signal event_start(type, event)

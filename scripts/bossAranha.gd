@@ -3,12 +3,16 @@ extends KinematicBody2D
 onready var timer_disparo = $Timer  # controlar quando vai atirar
 onready var posicao_disparo = $Position2D
 onready var anim_sprite = $AnimatedSprite 
+var vida := 300.0
+var vida_maxima := 300.0
+
 
 func _ready():
 	# Inicia o Timer para disparar a cada 2 segundos controla pela cena disparo
 	timer_disparo.start()
 	# Conecta o sinal de animação terminada ao próprio objeto
-	
+
+		
 func _on_Timer_timeout():
 	disparar()
 
@@ -30,3 +34,4 @@ func disparar():
 	var personagem = get_tree().get_root().find_node("personagem", true, false)
 	if personagem:
 		obj_disparo.direcao = (personagem.global_position - obj_disparo.global_position).normalized()
+

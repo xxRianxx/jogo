@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=99 format=2]
 
 [ext_resource path="res://Wraith_03/PNG Sequences/Idle/Wraith_03_Idle_010.png" type="Texture" id=1]
 [ext_resource path="res://Wraith_03/PNG Sequences/Idle/Wraith_03_Idle_011.png" type="Texture" id=2]
@@ -64,6 +64,10 @@
 [ext_resource path="res://Wraith_03/PNG Sequences/Attacking/Wraith_03_Attack_009.png" type="Texture" id=62]
 [ext_resource path="res://Wraith_03/PNG Sequences/Attacking/Wraith_03_Attack_011.png" type="Texture" id=63]
 [ext_resource path="res://Wraith_03/PNG Sequences/Attacking/Wraith_03_Attack_010.png" type="Texture" id=64]
+[ext_resource path="res://cenas/hud.tscn" type="PackedScene" id=65]
+[ext_resource path="res://scripts/HP.gd" type="Script" id=66]
+[ext_resource path="res://scripts/mana.gd" type="Script" id=67]
+[ext_resource path="res://Imagens/HUB/coins-chests-etc-2-0.png" type="Texture" id=68]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -132,25 +136,25 @@ animations = [ {
 "name": "atk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 37 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 31 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 35 ) ],
 "loop": true,
-"name": "hunter",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "idle",
-"speed": 7.0
+"name": "correr",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 51 ), ExtResource( 39 ), ExtResource( 50 ), ExtResource( 42 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 46 ), ExtResource( 38 ), ExtResource( 44 ), ExtResource( 47 ), ExtResource( 45 ), ExtResource( 48 ) ],
 "loop": true,
 "name": "morte",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 31 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 35 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
-"name": "run",
-"speed": 10.0
+"name": "parado",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 37 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "pulo",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=19]
@@ -220,6 +224,72 @@ tracks/1/keys = {
 radius = 5.0
 height = 7.33333
 
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 400, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 416, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 432, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 448, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 464, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 480, 224, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 14 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 528, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 544, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 560, 210, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 68 )
+region = Rect2( 576, 210, 16, 15 )
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ SubResource( 27 ), SubResource( 20 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="personagem" type="KinematicBody2D"]
 scale = Vector2( 3, 3 )
 collision_mask = 14
@@ -230,7 +300,7 @@ position = Vector2( 15, 8.33334 )
 scale = Vector2( 0.060119, 0.060119 )
 frames = SubResource( 13 )
 animation = "atk"
-frame = 9
+frame = 1
 speed_scale = 4.0
 playing = true
 
@@ -257,4 +327,59 @@ visible = false
 position = Vector2( 13.3333, 6 )
 shape = SubResource( 18 )
 
+[node name="HUB" type="CanvasLayer" parent="."]
+
+[node name="Health" type="ColorRect" parent="HUB"]
+margin_left = 27.0
+margin_top = 42.0
+margin_right = 105.0
+margin_bottom = 54.0
+color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
+script = ExtResource( 66 )
+
+[node name="bar" type="ColorRect" parent="HUB/Health"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 76.0
+margin_bottom = 10.0
+color = Color( 0.964706, 0.0196078, 0.0196078, 1 )
+
+[node name="Anim" type="AnimatedSprite" parent="HUB/Health"]
+position = Vector2( -8, 4 )
+frames = SubResource( 26 )
+frame = 2
+playing = true
+
+[node name="mana" type="ColorRect" parent="HUB"]
+margin_left = 31.0
+margin_top = 58.0
+margin_right = 109.0
+margin_bottom = 70.0
+color = Color( 0.203922, 0.192157, 0.192157, 0.905882 )
+script = ExtResource( 67 )
+
+[node name="bar" type="ColorRect" parent="HUB/mana"]
+margin_top = 1.0
+margin_right = 75.0
+margin_bottom = 10.0
+color = Color( 0.054902, 0.560784, 0.968627, 1 )
+
+[node name="Anim" type="AnimatedSprite" parent="HUB/mana"]
+position = Vector2( -7, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 30 )
+playing = true
+
+[node name="Control" parent="HUB" instance=ExtResource( 65 )]
+anchor_left = 0.107
+anchor_top = 0.024
+anchor_right = 0.107
+anchor_bottom = 0.024
+margin_left = -72.568
+margin_top = 24.6
+margin_right = -72.568
+margin_bottom = 24.6
+
+[connection signal="player_stats_changed" from="." to="HUB/Health" method="_on_personagem_player_stats_changed"]
+[connection signal="player_stats_changed" from="." to="HUB/mana" method="_on_personagem_player_stats_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="disparar"]

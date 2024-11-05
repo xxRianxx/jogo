@@ -1,20 +1,20 @@
 extends KinematicBody2D
 
 var velocidade = 300
-var forca_pulo = 300
-var gravidade = 1000
+var forca_pulo = 280
+var gravidade = 1050
 var mov = Vector2.ZERO
 var pulando = false
 var atirando = false
 var direcao = 1
 
 # Variáveis de HP e Mana
-var health := 100.0
-var max_health := 100.0
-var health_recovery := 1.0
+var vida := 100.0
+var vida_maxima := 100.0
+var restauracao_vida := 1.0
 var mana := 100.0
 var max_mana := 100.0
-var mana_recovery := 1.0
+var restauracao_mana := 1.0
 
 var max_pulos = 2  # Número máximo de pulos (1 no chão + 1 no ar)
 var pulos_disponiveis = 2 
@@ -25,14 +25,14 @@ func _ready() -> void:
 	emit_signal("player_stats_changed", self)
 	
 func _process(delta: float) -> void:
-	var new_mana = min(mana + mana_recovery * delta, max_mana)
-	if new_mana != mana:
-		mana = new_mana
+	var nova_mana = min(mana + restauracao_mana * delta, max_mana)
+	if nova_mana != mana:
+		mana = nova_mana
 		emit_signal("player_stats_changed", self)
 		
-	var new_health = min(health + health_recovery * delta, max_health)
-	if new_health != health:
-		health = new_health
+	var nova_vida = min(vida + restauracao_vida * delta, vida_maxima)
+	if nova_vida != vida:
+		vida = nova_vida
 		emit_signal("player_stats_changed", self)
 
 func _physics_process(delta):
@@ -41,7 +41,7 @@ func _physics_process(delta):
 	# Aplica gravidade apenas quando no ar
 	if not is_on_floor():
 		mov.y += gravidade * delta
-		$AnimatedSprite.play("hunter")
+		$AnimatedSprite.play("pulo")
 		
 	else:
 		mov.y = 0  # Zera a velocidade vertical ao tocar o chão
@@ -64,17 +64,17 @@ func _physics_process(delta):
 			mov.x = -velocidade
 			$AnimatedSprite.flip_h = true
 			direcao = -1
-			$AnimatedSprite.play("run")
+			$AnimatedSprite.play("correr")
 			
 		elif Input.is_action_pressed("ui_right"):
 			mov.x = velocidade
 			$AnimatedSprite.flip_h = false
 			direcao = 1
-			$AnimatedSprite.play("run")
+			$AnimatedSprite.play("correr")
 
 	# Idle quando parado e não atirando
 	if is_on_floor() and not atirando and mov.x == 0:
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite.play("parado")
 	
 	# Verifica o botão de disparo e permite disparar independentemente de estar no chão
 	if Input.is_action_just_pressed("disparo") and not atirando:

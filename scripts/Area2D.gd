@@ -11,8 +11,8 @@ func _on_Area2D_body_entered(body):
 			var dialogo = get_node("res://cenas/dialog.tscn")
 			dialogo.stop()  # Ou qualquer método que você tenha para parar o diálogo
 		
-		body.health = body.health - 30
-		if body.health < 9:
+		body.vida = body.vida - 30
+		if body.vida < 9:
 			
 			GlobalVar.Vassouras = 0
 			get_tree().reload_current_scene()
