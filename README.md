@@ -1,35 +1,60 @@
-# 🧙‍♂️ Projeto de Jogo 2D - "Mago das Sombras"
+# 🧙‍♂️ Mago das Sombras - Jogo 2D em Godot 3.5
 
-Este é um jogo 2D de plataforma desenvolvido como parte de um projeto acadêmico utilizando o motor **Godot Engine 3.5**. No jogo, você controla um mago aventureiro que enfrenta diversos desafios em quatro fases repletas de inimigos e obstáculos.
+Este é um jogo 2D de plataforma desenvolvido como parte de um projeto acadêmico utilizando o motor **Godot Engine 3.5**. O jogador controla um mago em uma jornada por 4 fases, enfrentando inimigos e superando obstáculos com habilidades mágicas e movimentação ágil.
+
+---
 
 ## 🎮 Sobre o Jogo
 
-Você assume o papel de um **mago** que precisa superar inimigos e perigos através de quatro fases desafiadoras. O personagem possui movimentação lateral, salto e a habilidade de **atirar projéteis mágicos** para derrotar os inimigos.
+Você controla um mago que pode:
+- 🧭 Andar para os lados
+- 🕴️ Pular (com direito a **pulo duplo**)
+- 🔥 Atirar projéteis mágicos (consome mana)
+- 💥 Interagir com inimigos (causando e recebendo dano)
+- ♻️ Regenerar **vida** e **mana** com o tempo
 
-### 🧩 Funcionalidades principais:
-- 🌍 Quatro fases com cenários e dificuldades diferentes.
-- 🧙‍♂️ Jogador pode **andar para os lados, pular e atirar projéteis**.
-- 🧠 Inimigos com comportamento programado para atacar o jogador.
-- 🧱 Detecção de colisões entre projéteis e inimigos.
-- 🔄 Interação entre o jogador e os elementos do cenário.
+O jogo possui **quatro fases** com desafios progressivos, inimigos únicos e ambientes variados.
+
+---
+
+## 🧠 Mecânicas Implementadas
+
+### 🎯 Movimentação
+- Andar para esquerda/direita
+- Pulo duplo com controle de gravidade e colisão
+- Animações de pulo, corrida, ataque e ocioso
+
+### 🧪 Combate
+- Sistema de **disparo mágico** que consome mana
+- Animação de ataque sincronizada com o projétil
+- Direção do disparo com base no lado em que o jogador está virado
+
+### 💖 Vida e Mana
+- Sistema de **vida e mana** com valores máximos
+- Regeneração gradual de ambos os atributos ao longo do tempo
+- Emissão de sinal sempre que os atributos são alterados
+
+### 💡 Inteligência e Interação
+- Sistema de colisão entre projéteis e inimigos
+- Sinal de atualização de status para uso em HUDs ou lógica de jogo
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
 - 🎮 [Godot Engine 3.5](https://godotengine.org/)
-- 💻 GDScript (linguagem de programação da Godot)
-- 🎨 Sprites 2D personalizados e/ou de uso livre
+- 📜 GDScript
+- 🎨 Sprites 2D animados
+- 🧩 Sistema de cenas e instâncias
 
-## 🚀 Como jogar
+---
 
-1. Baixe ou clone este repositório.
-2. Abra o projeto na Godot 3.5.
-3. Clique em **Play** para iniciar o jogo.
-4. Controles padrão:
-   - **Seta Esquerda/Direita**: mover o personagem
-   - **tecla cima**: pular
-   - **Tecla espaço: lançar projétil
+## 🎮 Controles
 
-## 🎓 Objetivo acadêmico
+| Ação              | Tecla padrão  |
+|-------------------|---------------|
+| Mover             | ← / →         |
+| Pular             | ↑             |
+| Atacar (disparo)  | Tecla "X"     |
 
-Este projeto foi desenvolvido como parte de um trabalho da disciplina de desenvolvimento de jogos digitais na faculdade. O objetivo foi aplicar conceitos de programação, física de jogos, lógica de colisão e interatividade em um jogo completo.
-
+> Os controles podem ser configurados nas ações do projeto (Input Map).
