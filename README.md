@@ -26,8 +26,8 @@ Você assume o papel de um **mago** que precisa superar inimigos e perigos atrav
 3. Clique em **Play** para iniciar o jogo.
 4. Controles padrão:
    - **Seta Esquerda/Direita**: mover o personagem
-   - **Barra de Espaço**: pular
-   - **Tecla X** (ou configurada): lançar projétil
+   - **tecla cima**: pular
+   - **Tecla espaço: lançar projétil
 
 ## 🎓 Objetivo acadêmico
 
